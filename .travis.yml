@@ -10,7 +10,7 @@ script:
 
 after_success: 
   - docker build -t binayverma/multi-client ./client
-  - docker build -t binayverma/multi-nginx ./ngnix
+  - docker build -t binayverma/multi-nginx ./nginx
   - docker build -t binayverma/multi-server ./server
   - docker build -t binayverma/multi-worker ./worker
   # Log in to docker CLI
