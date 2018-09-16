@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "binayverma/mutli-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "binayverma/mutli-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "conatinerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    },
+    {
+      "name": "server",
+      "image": "binayverma/mutli-server",
+      "hostname": "server",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "binayverma/mutli-worker",
+      "hostname": "worker",
+      "essential": false
+    }
+  ]
+}
